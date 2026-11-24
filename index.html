@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impacto digital | Amílcar Díaz</title>
+
+<style>
+:root{
+ --rojo:#bd0018;
+ --oscuro:#81000e;
+ --azul:#163f7a;
+ --verde:#177242;
+ --texto:#13233d;
+ --gris:#5e6b7e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ background:#f4f5f8;
+ color:var(--texto);
+ font-family:Arial,Helvetica,sans-serif;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.contenedor{width:min(1180px,94%);margin:auto}
+.titulo{
+ font-family:Impact,"Arial Black",Arial,sans-serif;
+ font-style:italic;
+ font-weight:1000;
+ text-transform:uppercase;
+ letter-spacing:-.015em;
+}
+.barra{
+ background:#80000c;
+ color:white;
+ padding:13px 0;
+ font-size:12px;
+ font-weight:900;
+}
+.barra .contenedor{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ flex-wrap:wrap;
+}
+.barra a{
+ color:white;
+ text-decoration:none;
+ margin-left:10px;
+}
+.hero{
+ position:relative;
+ background:
+ radial-gradient(circle at 65% 18%,#f1434a,transparent 38%),
+ linear-gradient(125deg,#df0d21,#86000c);
+ color:white;
+ overflow:hidden;
+}
+.hero:before{
+ content:"";
+ position:absolute;
+ left:0;right:0;bottom:0;
+ height:45%;
+ background:#48000b77;
+ clip-path:polygon(
+  0 65%,15% 40%,30% 75%,46% 20%,
+  62% 66%,78% 38%,100% 60%,
+  100% 100%,0 100%
+ );
+}
+.hero-grid{
+ position:relative;
+ display:grid;
+ grid-template-columns:42% 58%;
+ align-items:center;
+ min-height:560px;
+}
+.foto-principal{
+ display:flex;
+ justify-content:center;
+ align-items:end;
+ height:530px;
+ position:relative;
+}
+.foto-principal img{
+ width:100%;
+ max-width:470px;
+ height:490px;
+ object-fit:cover;
+ border-radius:28px 28px 0 0;
+ box-shadow:0 0 30px #45000877;
+}
+.nombre-foto{
+ position:absolute;
+ bottom:18px;
+ background:#fff;
+ color:#194379;
+ padding:12px 20px;
+ border-radius:12px;
+ transform:rotate(-3deg);
+ font:bold italic 32px Georgia,serif;
+ box-shadow:0 8px 20px #40000966;
+}
+.nombre-foto span{color:#d00b2c}
+.hero-info{padding:35px 20px}
+.hero-info h1{
+ margin:10px 0;
+ font-size:clamp(55px,8vw,110px);
+ line-height:.95;
+ text-shadow:0 5px 2px #500007;
+}
+.hero-info h1 small{
+ display:block;
+ font-size:.44em;
+}
+.hero-info p{
+ font-size:20px;
+ font-weight:800;
+ line-height:1.4;
+}
+.numero-grande{
+ display:inline-block;
+ background:#fff;
+ color:#bb001b;
+ padding:18px 24px;
+ border-radius:19px;
+ border-top:6px solid #ffe173;
+ box-shadow:0 10px 25px #4a001077;
+ max-width:100%;
+}
+.numero-grande strong{
+ display:block;
+ font-size:clamp(52px,7vw,94px);
+ font-weight:1000;
+ letter-spacing:-.06em;
+}
+.numero-grande span{
+ display:block;
+ font-weight:1000;
+ color:#164179;
+}
+.numero-grande small{
+ display:block;
+ color:#5e6c7c;
+ font-size:12px;
+ margin-top:6px;
+ font-weight:800;
+}
+.botones{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-top:20px;
+}
+.boton{
+ display:inline-block;
+ text-decoration:none;
+ background:#fff;
+ color:#ad0017;
+ border-radius:10px;
+ padding:12px 15px;
+ font-weight:900;
+}
+.boton.secundario{
+ background:transparent;
+ border:2px solid white;
+ color:white;
+}
+section.bloque{padding:42px 0}
+section.bloque h2{
+ margin:0 0 10px;
+ font-size:clamp(32px,4vw,52px);
+ color:#b80017;
+}
+.descripcion{
+ color:var(--gris);
+ line-height:1.65;
+}
+.fondo-blanco{background:#fff}
+.panel-facebook{
+ display:flex;
+ align-items:center;
+ gap:20px;
+ flex-wrap:wrap;
+ background:linear-gradient(115deg,#eaf1fa,#fff);
+ border:1px solid #dce4ed;
+ border-radius:20px;
+ padding:22px;
+ margin-top:22px;
+}
+.logo-facebook{
+ width:72px;height:72px;
+ border-radius:17px;
+ background:#1763c6;
+ color:white;
+ font:bold 63px Arial;
+ display:grid;
+ place-items:end center;
+ line-height:.94;
+}
+.panel-facebook strong{
+ display:block;
+ color:#b90019;
+ font-size:clamp(43px,6vw,76px);
+ font-weight:1000;
+ letter-spacing:-.06em;
+}
+.panel-facebook span{
+ font-weight:900;
+ color:#173e76;
+}
+.panel-facebook p{
+ margin:5px 0;
+ font-weight:800;
+}
+.rincon-segundo{
+ display:flex;
+ justify-content:flex-end;
+ margin-top:18px;
+}
+.tarjeta-segundo{
+ width:245px;
+ background:#f8f9fc;
+ border:1px solid #d9e1e9;
+ border-radius:15px;
+ padding:13px;
+ box-shadow:0 5px 15px #26374b16;
+ text-decoration:none;
+}
+.tarjeta-segundo .arriba{
+ display:flex;
+ align-items:center;
+ gap:10px;
+}
+.tarjeta-segundo img{
+ width:54px;
+ height:54px;
+ border-radius:50%;
+ object-fit:cover;
+}
+.tarjeta-segundo h3{
+ font-size:13px;
+ line-height:1.3;
+ margin:0;
+}
+.tarjeta-segundo strong{
+ display:block;
+ font-size:34px;
+ color:#17693b;
+ margin:8px 0 0;
+}
+.tarjeta-segundo small{
+ font-size:10px;
+ font-weight:900;
+ color:#59687a;
+}
+.tarjetas{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px;
+ margin-top:24px;
+}
+.tarjeta-video{
+ display:flex;
+ flex-direction:column;
+ background:white;
+ border:1px solid #dce3ed;
+ border-radius:19px;
+ overflow:hidden;
+ text-decoration:none;
+ box-shadow:0 8px 25px #182c4818;
+ transition:transform .2s;
+}
+.tarjeta-video:hover{transform:translateY(-5px)}
+.miniatura{
+ height:220px;
+ background:#cdd3df;
+ position:relative;
+ overflow:hidden;
+}
+.miniatura img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+.play{
+ position:absolute;
+ bottom:14px;
+ left:14px;
+ width:52px;
+ height:52px;
+ border-radius:50%;
+ background:#e50022;
+ border:3px solid white;
+ display:grid;
+ place-items:center;
+ color:white;
+ font-size:22px;
+}
+.etiqueta-video{
+ position:absolute;
+ top:12px;
+ right:12px;
+ background:#b60018;
+ color:white;
+ border-radius:8px;
+ padding:7px 10px;
+ font-size:11px;
+ font-weight:900;
+}
+.cuerpo-video{
+ padding:18px;
+ flex:1;
+}
+.cuerpo-video h3{
+ margin:0;
+ font-size:13px;
+ color:#16417b;
+}
+.cifra-video{
+ font-size:clamp(40px,5vw,61px);
+ color:#ba0019;
+ font-weight:1000;
+ letter-spacing:-.05em;
+ margin-top:8px;
+}
+.cuerpo-video .unidad{
+ font-size:15px;
+ font-weight:900;
+}
+.detalle-video{
+ border-top:1px solid #e4e8ee;
+ margin-top:13px;
+ padding-top:13px;
+ font-size:13px;
+ line-height:1.6;
+ color:#586b7e;
+}
+.nota-azul{
+ margin-top:22px;
+ padding:16px;
+ background:#e8eff9;
+ border-radius:12px;
+ font-weight:800;
+ color:#16437b;
+ line-height:1.6;
+}
+.dos-columnas{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:16px;
+}
+.estadistica{
+ background:white;
+ padding:24px;
+ border:1px solid #dce3ed;
+ border-radius:18px;
+}
+.estadistica strong{
+ display:block;
+ color:#bb001a;
+ font-size:clamp(43px,5vw,70px);
+ letter-spacing:-.05em;
+ margin:10px 0;
+}
+.estadistica h3{color:#163d76}
+.estadistica p{
+ color:#5c6879;
+ line-height:1.6;
+}
+details{
+ margin-top:20px;
+ background:white;
+ padding:16px;
+ border-radius:12px;
+}
+summary{
+ cursor:pointer;
+ font-weight:900;
+ color:#16417b;
+}
+details table{width:100%;border-collapse:collapse}
+details td{
+ padding:12px 6px;
+ border-bottom:1px solid #e3e7ef;
+}
+details td:last-child{text-align:right;font-weight:900}
+.pestanas{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+ margin:22px 0 14px;
+}
+.pestanas button{
+ padding:12px 15px;
+ background:white;
+ border:1px solid #bac5d2;
+ border-radius:9px;
+ color:#263b57;
+ font-weight:900;
+}
+.pestanas button.activa{
+ background:#ac0017;
+ border-color:#ac0017;
+ color:white;
+}
+.filtros{
+ display:grid;
+ grid-template-columns:1fr 180px 180px;
+ gap:9px;
+ margin-bottom:14px;
+}
+.filtros input,.filtros select{
+ background:#fff;
+ color:#172c49;
+ border:1px solid #cbd4df;
+ border-radius:8px;
+ padding:12px;
+ width:100%;
+ min-width:0;
+}
+.tabla-contenedor{
+ overflow-x:auto;
+ background:#fff;
+ border-radius:12px;
+ border:1px solid #dde4ed;
+}
+table.datos{
+ width:100%;
+ min-width:860px;
+ border-collapse:collapse;
+ font-size:13px;
+}
+.datos th{
+ background:#163f77;
+ color:white;
+ text-align:left;
+ padding:13px;
+}
+.datos td{
+ padding:11px;
+ border-bottom:1px solid #e5e9ef;
+}
+.datos tr:hover{background:#f3f6fb}
+.datos a{
+ color:#14528c;
+ font-weight:900;
+ text-decoration:none;
+}
+#contador{
+ font-size:13px;
+ font-weight:900;
+ color:#59687c;
+}
+.descargar{
+ margin-top:18px;
+ padding:13px 18px;
+ background:#16417e;
+ color:white;
+ border:0;
+ border-radius:9px;
+ font-weight:900;
+}
+.pie{
+ background:#80000e;
+ color:white;
+ text-align:center;
+ padding:24px;
+ font-size:12px;
+ line-height:1.7;
+ font-weight:800;
+}
+@media(max-width:900px){
+ .hero-grid{grid-template-columns:1fr}
+ .hero-info{order:1}
+ .foto-principal{order:2;height:370px}
+ .foto-principal img{height:350px;max-width:380px}
+ .tarjetas{grid-template-columns:1fr 1fr}
+ .filtros{grid-template-columns:1fr 1fr}
+ .filtros input{grid-column:span 2}
+}
+@media(max-width:560px){
+ .hero-info h1{font-size:65px}
+ .foto-principal{height:340px}
+ .foto-principal img{height:320px}
+ .tarjetas,.dos-columnas{grid-template-columns:1fr}
+ .filtros{grid-template-columns:1fr}
+ .filtros input{grid-column:auto}
+ .tarjeta-segundo{width:210px}
+ .panel-facebook{padding:15px}
+ .logo-facebook{width:55px;height:55px;font-size:48px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="barra">
+<div class="contenedor">
+ <span>IMPACTO DIGITAL · AMAZONAS · NOVIEMBRE 2026</span>
+ <nav>
+  <a href="#facebook">FACEBOOK</a>
+  <a href="#virales">REELS DESTACADOS</a>
+  <a href="#datos">DATOS</a>
+ </nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="contenedor hero-grid">
+
+ <div class="foto-principal">
+  <img id="fotoAmilcar" alt="Amílcar Díaz">
+  <div class="nombre-foto">
+   <span>Amílcar</span> Díaz ♥ Somos Perú
+  </div>
+ </div>
+
+ <div class="hero-info">
+  <div style="font-weight:900;letter-spacing:.15em">
+   PUBLICACIONES DE AMÍLCAR DÍAZ
+  </div>
+
+  <h1 class="titulo">
+   <small>NUESTRO FUERTE</small>
+   FACEBOOK
+  </h1>
+
+  <p>
+   Los videos destacados de Amílcar
+   y sus estadísticas de reproducción.
+  </p>
+
+  <div class="numero-grande">
+   <strong>67.355</strong>
+   <span>REPRODUCCIONES EN FACEBOOK</span>
+   <small>
+    8 Reels · 10 publicaciones · 3.060 interacciones
+   </small>
+  </div>
+
+  <div class="botones">
+   <a class="boton" href="#virales">
+    ▶ VER VIDEOS MÁS VISTOS
+   </a>
+   <a class="boton secundario" href="#datos">
+    CONSULTAR MÉTRICAS
+   </a>
+  </div>
+ </div>
+
+</div>
+</section>
+
+<section class="bloque fondo-blanco" id="facebook">
+<div class="contenedor">
+
+ <h2 class="titulo">FACEBOOK EN NÚMEROS</h2>
+
+ <p class="descripcion">
+  Reproducciones de los Reels analizados.
+  Las interacciones incluyen también las publicaciones
+  fotográficas registradas.
+ </p>
+
+ <div class="panel-facebook">
+  <div class="logo-facebook">f</div>
+  <div>
+   <span>AMÍLCAR DÍAZ · SOMOS PERÚ</span>
+   <strong>67.355</strong>
+   <p>
+    REPRODUCCIONES DE REELS ·
+    3.060 INTERACCIONES
+   </p>
+  </div>
+ </div>
+
+ <!-- SEGUNDO HERNÁNDEZ: PEQUEÑO, EN EL RINCÓN DERECHO -->
+ <div class="rincon-segundo">
+  <a href="#datos" class="tarjeta-segundo"
+     onclick="verSegundo()">
+
+   <div class="arriba">
+    <img id="fotoSegundo" alt="Segundo Hernández">
+    <h3>
+     SEGUNDO HERNÁNDEZ
+     <br>«CARIÑITO»
+    </h3>
+   </div>
+
+   <strong>49.208</strong>
+   <small>REPRODUCCIONES EN FACEBOOK</small>
+
+  </a>
+ </div>
+
+</div>
+</section>
+
+<section class="bloque" id="virales">
+<div class="contenedor">
+
+<h2 class="titulo">¡LO MÁS VIRAL!</h2>
+<p class="descripcion">
+ Los tres Reels más reproducidos de Amílcar
+ dentro de los archivos proporcionados.
+ Pulsa cada tarjeta para abrir el video original.
+</p>
+
+<div class="tarjetas">
+
+ <a class="tarjeta-video"
+ href="https://www.facebook.com/reel/1133280286087793/"
+ target="_blank" rel="noopener">
+
+  <div class="miniatura">
+   <img id="mini1" alt="Amílcar Díaz">
+   <span class="play">▶</span>
+   <span class="etiqueta-video">N.º 1</span>
+  </div>
+
+  <div class="cuerpo-video">
+   <h3>MÁS VISTO Y MÁS COMENTADO</h3>
+   <div class="cifra-video">22.541</div>
+   <div class="unidad">REPRODUCCIONES</div>
+   <div class="detalle-video">
+    262 me gusta<br>
+    <b>254 comentarios</b><br>
+    53 compartidos<br>
+    <b>▶ VER REEL COMPLETO</b>
+   </div>
+  </div>
+ </a>
+
+ <a class="tarjeta-video"
+ href="https://www.facebook.com/reel/2497001907773278/"
+ target="_blank" rel="noopener">
+
+  <div class="miniatura">
+   <img id="mini2" alt="Video destacado de Amílcar">
+   <span class="play">▶</span>
+   <span class="etiqueta-video">N.º 2</span>
+  </div>
+
+  <div class="cuerpo-video">
+   <h3>VIDEO CON MÁS INTERACCIONES</h3>
+   <div class="cifra-video">15.068</div>
+   <div class="unidad">REPRODUCCIONES</div>
+   <div class="detalle-video">
+    586 me gusta<br>
+    124 comentarios<br>
+    39 compartidos<br>
+    <b>749 INTERACCIONES · VER REEL</b>
+   </div>
+  </div>
+ </a>
+
+ <a class="tarjeta-video"
+ href="https://www.facebook.com/reel/29477536111938025/"
+ target="_blank" rel="noopener">
+
+  <div class="miniatura">
+   <img id="mini3" alt="Video de Amílcar">
+   <span class="play">▶</span>
+   <span class="etiqueta-video">N.º 3</span>
+  </div>
+
+  <div class="cuerpo-video">
+   <h3>TERCER REEL MÁS VISTO</h3>
+   <div class="cifra-video">7.763</div>
+   <div class="unidad">REPRODUCCIONES</div>
+   <div class="detalle-video">
+    Toca la tarjeta para ver
+    el video y sus estadísticas originales.
+    <br><b>▶ VER REEL COMPLETO</b>
+   </div>
+  </div>
+ </a>
+
+</div>
+
+<div class="nota-azul">
+ Todas las tarjetas abren las publicaciones originales
+ de Facebook. Las fotografías utilizadas son imágenes
+ de referencia; no se presentan como capturas
+ verificadas de esos Reels.
+</div>
+
+</div>
+</section>
+
+<section class="bloque fondo-blanco">
+<div class="contenedor">
+
+<h2 class="titulo">REPRODUCCIONES DE TIKTOK</h2>
+
+<div class="dos-columnas">
+
+ <div class="estadistica">
+  <h3>CAPTURAS DE AMÍLCAR</h3>
+  <strong>≈ 132.594</strong>
+  <p>
+   Recuento de reproducciones visibles en
+   las capturas que proporcionaste.
+   Las cifras expresadas en miles son aproximadas.
+  </p>
+ </div>
+
+ <div class="estadistica">
+  <h3>MUESTRA DEL PERFIL OFICIAL</h3>
+  <strong>51.856</strong>
+  <p>
+   Reproducciones correspondientes a
+   15 videos de la extracción anterior.
+   No se suman otra vez a las capturas.
+  </p>
+ </div>
+
+</div>
+
+<details>
+ <summary>
+  VER LAS OTRAS MUESTRAS DE TIKTOK
+ </summary>
+
+ <table>
+  <tr>
+   <td>Amílcar · cuentas relacionadas</td>
+   <td>63.134</td>
+  </tr>
+  <tr>
+   <td>Cariñito · cuenta oficial</td>
+   <td>129.464</td>
+  </tr>
+  <tr>
+   <td>Cariñito · otras cuentas</td>
+   <td>124.849</td>
+  </tr>
+ </table>
+
+ <p style="font-size:12px;color:#697586">
+  Son muestras de diferentes períodos y cuentas.
+  No equivalen al total histórico de TikTok.
+ </p>
+</details>
+
+</div>
+</section>
+
+<section class="bloque" id="datos">
+<div class="contenedor">
+
+<h2 class="titulo">DATOS PUBLICACIÓN POR PUBLICACIÓN</h2>
+
+<p class="descripcion">
+ Desglose de reproducciones, me gusta,
+ comentarios y compartidos, con enlaces
+ a las publicaciones originales.
+</p>
+
+<div class="pestanas">
+ <button class="activa" data-scope="FB"
+ onclick="cambiarRed('FB',this)">
+ FACEBOOK
+ </button>
+
+ <button data-scope="TT"
+ onclick="cambiarRed('TT',this)">
+ TIKTOK OFICIAL
+ </button>
+
+ <button data-scope="OTROS"
+ onclick="cambiarRed('OTROS',this)">
+ OTRAS CUENTAS
+ </button>
+
+ <button data-scope="TODOS"
+ onclick="cambiarRed('TODOS',this)">
+ TODOS
+ </button>
+</div>
+
+<div class="filtros">
+ <input id="buscar"
+  placeholder="Buscar publicación..."
+  oninput="dibujarTabla()">
+
+ <select id="candidato" onchange="dibujarTabla()">
+  <option value="A">Amílcar Díaz</option>
+  <option value="C">Segundo Hernández</option>
+  <option value="*">Ambos candidatos</option>
+ </select>
+
+ <select id="orden" onchange="dibujarTabla()">
+  <option value="views">Más reproducciones</option>
+  <option value="comments">Más comentarios</option>
+  <option value="interactions">Más interacciones</option>
+  <option value="date">Más recientes</option>
+ </select>
+</div>
+
+<p id="contador">Cargando registros...</p>
+
+<div class="tabla-contenedor">
+<table class="datos">
+<thead>
+<tr>
+ <th>Fecha</th>
+ <th>Candidato</th>
+ <th>Red</th>
+ <th>Publicación</th>
+ <th>Vistas</th>
+ <th>Me gusta</th>
+ <th>Comentarios</th>
+ <th>Compartidos</th>
+ <th>Fuente</th>
+</tr>
+</thead>
+<tbody id="filas"></tbody>
+</table>
+</div>
+
+<button class="descargar" onclick="descargarCSV()">
+ ↓ DESCARGAR LOS 85 REGISTROS EN CSV
+</button>
+
+<p class="descripcion" style="font-size:12px;margin-top:20px">
+ Los datos corresponden a las fechas de extracción,
+ no a estadísticas en tiempo real.
+ Las reproducciones no representan personas únicas
+ ni pueden interpretarse como votos.
+</p>
+
+</div>
+</section>
+
+<footer class="pie">
+ IMPACTO DIGITAL · AMAZONAS · NOVIEMBRE 2026
+ <br>
+ Recuento descriptivo de publicaciones públicas
+ de Facebook y TikTok.
+</footer>
+
+<script>
+/*
+ IMÁGENES
+ Para mantener este código legible, los retratos se
+ cargan desde los enlaces públicos de perfil.
+ Si las plataformas cambian sus URL de imagen,
+ actualiza estas direcciones.
+*/
+
+const imagenes = {
+ amilcar:
+ "https://graph.facebook.com/61567838240210/picture?type=large",
+ segundo:
+ "https://graph.facebook.com/61578168690690/picture?type=large"
+};
+
+document.getElementById("fotoAmilcar").src =
+ imagenes.amilcar;
+
+document.getElementById("fotoSegundo").src =
+ imagenes.segundo;
+
+document.getElementById("mini1").src =
+ imagenes.amilcar;
+
+document.getElementById("mini2").src =
+ imagenes.amilcar;
+
+document.getElementById("mini3").src =
+ imagenes.amilcar;
+
+/*
+ BASE DE 85 PUBLICACIONES
+ A = Amílcar
+ C = Cariñito
+ FB = Facebook
+ TT = TikTok
+ o = oficial
+ r = otras cuentas
+
+ Fecha: MM-DD de 2026
+ Columnas:
+ candidato | red | origen | fecha |
+ vistas | likes | comentarios | compartidos | ID
+*/
+
+const BASE = `
+A|FB|o|11-18|6539|92|45|10|1651551783124397
+A|FB|o|11-17||208|37|27|P1
+A|FB|o|11-17|3017|161|24|24|1502807304993800
+A|FB|o|11-17|22541|262|254|53|1133280286087793
+A|FB|o|11-17|7663|266|48|31|1516251343672120
+A|FB|o|11-24|2469|124|12|12|1749904089409438
+A|FB|o|11-23|7763|305|67|15|29477536111938025
+A|FB|o|11-23|15068|586|124|39|2497001907773278
+A|FB|o|11-23|2295|103|16|14|1463411565286151
+A|FB|o|11-23||78|17|6|P9
+C|FB|o|11-18|670|74|26|8|2672486846512990
+C|FB|o|11-17|19595|186|48|57|2691048311407292
+C|FB|o|11-17|1575|116|27|8|1479607764101261
+C|FB|o|11-17||69|17|3|P13
+C|FB|o|11-17||62|20|2|P14
+C|FB|o|11-19|4990|215|37|36|4463113480570118
+C|FB|o|11-19||87|16|9|P16
+C|FB|o|11-19|22378|461|119|40|1929356021365037
+C|FB|o|11-19||109|38|12|P18
+C|FB|o|11-19||47|27|3|P19
+A|TT|o|11-18|229|10|0|0|amilcardiazoficial@7709600430933740801
+A|TT|o|11-18|423|48|1|0|amilcardiazoficial@7709588000673402130
+A|TT|o|11-18|490|73|3|0|amilcardiazoficial@7709577649596714241
+A|TT|o|11-18|2120|65|11|6|amilcardiazoficial@7709527477642693889
+A|TT|o|11-18|3328|61|10|8|amilcardiazoficial@7709520020841286920
+A|TT|o|11-17|1046|30|1|1|amilcardiazoficial@7709289760354864385
+A|TT|o|11-17|366|24|1|1|amilcardiazoficial@7709287656571604225
+A|TT|o|11-17|647|60|3|2|amilcardiazoficial@7709172882353425671
+A|TT|o|11-17|6047|135|22|25|amilcardiazoficial@7709132070991301896
+A|TT|o|11-16|1197|136|6|5|amilcardiazoficial@7708777651632213300
+A|TT|o|11-16|15000|438|48|28|amilcardiazoficial@7708564440949525766
+A|TT|o|11-15|1722|107|10|3|amilcardiazoficial@7708436516678618369
+A|TT|o|11-15|8633|414|18|17|amilcardiazoficial@7708449286312185109
+A|TT|o|11-15|8924|172|34|8|amilcardiazoficial@7708434469845257524
+A|TT|o|11-14|1684|115|4|3|amilcardiazoficial@7707803928619928833
+C|TT|o|11-18|2068|137|17|26|cariito.gob.regio@7709573529531862290
+C|TT|o|11-18|1976|199|12|15|cariito.gob.regio@7709311440208809234
+C|TT|o|11-17|1661|151|8|14|cariito.gob.regio@7709189214885235976
+C|TT|o|11-16|12100|400|11|28|cariito.gob.regio@7708844412813511937
+C|TT|o|11-15|7654|399|20|20|cariito.gob.regio@7708517459300470034
+C|TT|o|11-15|1625|130|4|13|cariito.gob.regio@7708246374810160391
+C|TT|o|11-14|1810|97|8|9|cariito.gob.regio@7708173798821940487
+C|TT|o|11-14|30600|1273|103|158|cariito.gob.regio@7708112364503174407
+C|TT|o|11-13|1884|116|6|20|cariito.gob.regio@7707690243104738568
+C|TT|o|11-13|5974|296|31|36|cariito.gob.regio@7707501812269468980
+C|TT|o|11-12|908|42|3|18|cariito.gob.regio@7707303647654317319
+C|TT|o|11-11|3685|182|9|24|cariito.gob.regio@7706738724410772743
+C|TT|o|11-10|19100|747|31|37|cariito.gob.regio@7706617324714937607
+C|TT|o|11-07|13500|655|28|42|cariito.gob.regio@7705448655955758354
+C|TT|o|11-07|17200|866|54|58|cariito.gob.regio@7705419576648928518
+C|TT|o|11-23|995|33|1|17|cariito.gob.regio@7711471259778944274
+C|TT|o|11-23|1460|88|5|3|cariito.gob.regio@7711186655985667336
+C|TT|o|11-20|1309|81|6|12|cariito.gob.regio@7710326019932097799
+C|TT|o|11-19|1317|74|3|19|cariito.gob.regio@7710003831597305095
+C|TT|o|11-19|2638|251|19|32|cariito.gob.regio@7709683072945376533
+A|TT|r|11-21|1400|166|12|11|amilcarcorazon@7710598908245855508
+A|TT|r|11-18|574|58|3|2|team_amilcardiaz@7709602192478457109
+A|TT|r|11-22|1310|161|9|4|team_amilcardiaz@7711057367865117973
+A|TT|r|11-15|16000|426|26|16|abg_edinson_guevara@7708461758691675412
+A|TT|r|11-16|11700|550|26|58|team_amilcardiaz@7708672706324991253
+A|TT|r|11-15|6468|199|38|12|amazonas.com.18@7708191196853669141
+A|TT|r|09-07|9079|212|15|33|team_amilcardiaz@7682828181883178258
+A|TT|r|08-03|12600|287|15|18|maritaherrera.amazonas@7669650736157953301
+A|TT|r|07-18|631|35|1|0|amilcarlovers@7663995907167489301
+A|TT|r|07-19|3372|178|4|4|team_amilcardiaz@7664132733127429383
+C|TT|r|11-21|4073|168|11|49|jovenesconelarbolito@7710656871157239060
+C|TT|r|11-17|1749|104|5|20|sumatealcambio6@7708945037270240564
+C|TT|r|11-17|3151|116|0|14|sumatealcambio6@7708977644058021127
+C|TT|r|11-16|5166|192|9|35|sumatealcambio6@7708870592211979528
+C|TT|r|11-15|7532|296|11|47|sumatealcambio6@7708547258911902977
+C|TT|r|11-17|484|45|4|18|jovenesconelarbolito@7708958745417501973
+C|TT|r|11-18|933|66|3|19|jovenesconelarbolito@7709564933658168596
+C|TT|r|11-16|8540|254|19|55|jovenesconelarbolito@7708765563627048213
+C|TT|r|11-15|11200|406|28|90|jovenesconelarbolito@7708522371669445908
+C|TT|r|11-14|3413|242|8|18|jovenesconelarbolito@7708087449225940230
+C|TT|r|11-14|11600|268|13|27|jovenesconelarbolito@7708058364785364244
+C|TT|r|11-12|778|18|0|1|edwar.frias.torre@7707076260161195284
+C|TT|r|11-12|17600|353|35|58|jorge.o.contreras@7707301502905240850
+C|TT|r|11-13|9388|324|18|22|jovenesconelarbolito@7707483349312359700
+C|TT|r|11-13|2943|65|0|7|sumatealcambio6@7707454377556102418
+C|TT|r|11-12|18300|699|51|227|jovenesconelarbolito@7707339301159259412
+C|TT|r|11-05|3902|311|12|37|jovenesconelarbolito@7704747859287100693
+C|TT|r|11-05|3616|171|11|21|jovenesconelarbolito@7704787609809161493
+C|TT|r|11-04|8697|293|61|113|jorge.o.contreras@7704305054446013714
+C|TT|r|11-04|1784|102|7|12|jovenesconelarbolito@7704349344660557077
+`;
+
+/* Enlaces originales de fotografías de Facebook */
+const fotosFacebook = {
+ P1:"https://www.facebook.com/permalink.php?story_fbid=pfbid0Mqjjc89SwW6YeP25BSTRvmF7cnkRSR2TiU1B7cGRKBgvGNHQqno8XhL72z4cUM12l&id=61567838240210",
+ P9:"https://www.facebook.com/permalink.php?story_fbid=pfbid029kigXiJKYbAyA6ZeYKWqEefiHahjVVWbFuoawjLf7KLXRbQSDC8XPjPCgATwa3DSl&id=61567838240210",
+ P13:"https://www.facebook.com/permalink.php?story_fbid=pfbid0tdyfKix9WmPN24xxFyG4ebxPtW8CQrwxMiNBtkE4iF9qo9tUNiXKKQDLGBUiC6Ezl&id=61578168690690",
+ P14:"https://www.facebook.com/permalink.php?story_fbid=pfbid031yTbG6Vw1ffbHK5SUHfZkzMLBEXgq2254o4axSKGtqSHqNoTtpVYvVvNwV3exzSil&id=61578168690690",
+ P16:"https://www.facebook.com/permalink.php?story_fbid=pfbid02MomqJDzosuZWDJtY2Zr7W3Uh7jNgdUihEsfNAgq6k6eYetV7QzRE7g3LHzURF7KJl&id=61578168690690",
+ P18:"https://www.facebook.com/permalink.php?story_fbid=pfbid0dtY9sCSxg9VL3Tm3HZ5hfTpyRRchmQ8EGWj8eZaLDKgVZXpxGxrt62QX7pEvZNwol&id=61578168690690",
+ P19:"https://www.facebook.com/permalink.php?story_fbid=pfbid0K1bdJV7egR6xsF5DwVHZJfC79USsMbJAPsRPbu41jjsB93yShmHNVWqF5s36kTsDl&id=61578168690690"
+};
+
+const registros = BASE.trim().split("\n").map(line=>{
+ const x=line.trim().split("|");
+
+ const persona=x[0];
+ const red=x[1];
+ const origen=x[2];
+ const fecha="2026-"+x[3];
+ const vistas=x[4]===""?null:Number(x[4]);
+ const likes=Number(x[5]);
+ const comentarios=Number(x[6]);
+ const compartidos=Number(x[7]);
+ const codigo=x[8];
+
+ let enlace;
+
+ if(red==="FB"){
+  enlace=fotosFacebook[codigo] ||
+   "https://www.facebook.com/reel/"+codigo+"/";
+ }else{
+  const partes=codigo.split("@");
+  enlace="https://www.tiktok.com/@"+
+   partes[0]+"/video/"+partes[1];
+ }
+
+ return{
+  persona,red,origen,fecha,
+  vistas,likes,comentarios,compartidos,
+  interacciones:likes+comentarios+compartidos,
+  codigo,enlace
+ };
+});
+
+const formato=n=>n===null?"—":
+ new Intl.NumberFormat("es-PE").format(n);
+
+let redSeleccionada="FB";
+
+function cambiarRed(red,boton){
+ redSeleccionada=red;
+
+ document.querySelectorAll("[data-scope]")
+  .forEach(x=>x.classList.toggle("activa",x===boton));
+
+ dibujarTabla();
+}
+
+function verSegundo(){
+ document.getElementById("candidato").value="C";
+
+ const boton=document.querySelector(
+  '[data-scope="FB"]'
+ );
+
+ cambiarRed("FB",boton);
+}
+
+function filtrar(){
+ const persona=document.getElementById("candidato").value;
+ const texto=document.getElementById("buscar")
+  .value.toLowerCase().trim();
+
+ return registros.filter(r=>{
+  const coincidePersona=
+   persona==="*" || r.persona===persona;
+
+  const coincideRed=
+   redSeleccionada==="TODOS" ||
+   (redSeleccionada==="FB" && r.red==="FB") ||
+   (redSeleccionada==="TT" &&
+    r.red==="TT" && r.origen==="o") ||
+   (redSeleccionada==="OTROS" &&
+    r.red==="TT" && r.origen==="r");
+
+  const coincideTexto=
+   (r.fecha+" "+
+    r.codigo+" "+
+    (r.persona==="A"?"Amílcar":"Cariñito")
+   ).toLowerCase().includes(texto);
+
+  return coincidePersona && coincideRed && coincideTexto;
+ });
+}
+
+function dibujarTabla(){
+ const lista=filtrar();
+ const orden=document.getElementById("orden").value;
+
+ lista.sort((a,b)=>{
+  if(orden==="date"){
+   return b.fecha.localeCompare(a.fecha);
+  }
+
+  if(orden==="comments"){
+   return b.comentarios-a.comentarios;
+  }
+
+  if(orden==="interactions"){
+   return b.interacciones-a.interacciones;
+  }
+
+  return (b.vistas||0)-(a.vistas||0);
+ });
+
+ const cuerpo=document.getElementById("filas");
+ cuerpo.innerHTML="";
+
+ lista.forEach(r=>{
+  const tr=document.createElement("tr");
+
+  const candidato=
+   r.persona==="A"?"Amílcar":"Segundo";
+
+  const plataforma=
+   r.red==="FB"?"Facebook":
+   r.origen==="o"?"TikTok oficial":"TikTok otras cuentas";
+
+  const publicacion=
+   r.red==="FB"?
+    (r.codigo.startsWith("P")?"Fotografía":"Reel"):
+    "Video @"+r.codigo.split("@")[0];
+
+  const valores=[
+   r.fecha,
+   candidato,
+   plataforma,
+   publicacion,
+   formato(r.vistas),
+   formato(r.likes),
+   formato(r.comentarios),
+   formato(r.compartidos)
+  ];
+
+  valores.forEach(valor=>{
+   const td=document.createElement("td");
+   td.textContent=valor;
+   tr.appendChild(td);
+  });
+
+  const td=document.createElement("td");
+  const enlace=document.createElement("a");
+
+  enlace.href=r.enlace;
+  enlace.target="_blank";
+  enlace.rel="noopener noreferrer";
+  enlace.textContent="▶ ABRIR";
+
+  td.appendChild(enlace);
+  tr.appendChild(td);
+  cuerpo.appendChild(tr);
+ });
+
+ document.getElementById("contador").textContent=
+  lista.length+" registros visibles de "+
+  registros.length+" publicaciones";
+}
+
+function descargarCSV(){
+ const cabecera=[
+  "Candidato","Plataforma","Origen","Fecha",
+  "Vistas","Me gusta","Comentarios","Compartidos",
+  "Interacciones","URL"
+ ];
+
+ const filas=[cabecera,...registros.map(r=>[
+  r.persona==="A"?"Amílcar Díaz":"Segundo Hernández",
+  r.red==="FB"?"Facebook":"TikTok",
+  r.origen==="o"?"Oficial":"Otras cuentas",
+  r.fecha,
+  r.vistas===null?"":r.vistas,
+  r.likes,
+  r.comentarios,
+  r.compartidos,
+  r.interacciones,
+  r.enlace
+ ])];
+
+ const csv="\uFEFF"+filas.map(row=>
+  row.map(valor=>
+   '"'+String(valor).replaceAll('"','""')+'"'
+  ).join(",")
+ ).join("\r\n");
+
+ const blob=new Blob([csv],{
+  type:"text/csv;charset=utf-8"
+ });
+
+ const url=URL.createObjectURL(blob);
+ const a=document.createElement("a");
+
+ a.href=url;
+ a.download="metricas_85_publicaciones.csv";
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+
+ setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+
+dibujarTabla();
+</script>
+
+</body>
+</html>
